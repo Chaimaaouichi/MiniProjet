@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     echo "======== Executing Push to Docker Hub ========"
-                    sh "docker tag devopstp rouamk/miniprojet:miniprojet"
+                    sh "docker tag miniprojet rouamk/miniprojet:miniprojet"
                     sh "docker push rouamk/miniprojet:miniprojet"
                 }
             }
