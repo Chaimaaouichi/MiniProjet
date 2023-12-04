@@ -24,10 +24,12 @@ pipeline {
         stage("Push to Docker Hub") {
             steps {
                 script {
+                    withCredentials([usernamePassword(credentialsId: 'rouamk', usernameVariable: 'rouamk', passwordVariable: 'rouamkadmi')]) {
+                        sh "docker login -u rouamk -p rouamkadmi"
                     echo "======== Executing Push to Docker Hub ========"
                     sh "docker tag miniprojet rouamk/miniprojet:miniprojet"
                     sh "docker push rouamk/miniprojet:miniprojet"
-                }
+                    }}
             }
         }
     }
