@@ -9,6 +9,14 @@ pipeline {
                 sh "ls -ltr"
             }
         }
+          stage("Unit Tests") {
+            steps {
+                script {
+                    echo "======== Executing Unit Tests ========"
+                    sh "mvn test"
+                }
+            }
+        }
 
         stage("Create Docker Image") {
             steps {
@@ -32,6 +40,7 @@ pipeline {
                     }}
             }
         }
+        
     }
 
     post {
