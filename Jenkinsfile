@@ -15,7 +15,7 @@ pipeline {
                 script {
                      dir ("FullStackApp"){
                     echo "======== Executing Docker Image Creation ========"
-                    sh "sudo docker build -t miniprojet ."
+                    sh "docker build -t miniprojet ."
                 }
             }
         }
