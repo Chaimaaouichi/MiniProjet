@@ -3,7 +3,7 @@ services:
   Miniprojet:
     build: .
     ports:
-      - 8083:8083
+      - 8081:8081
     links:
       - mysql-container
     depends_on:
