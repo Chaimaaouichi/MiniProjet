@@ -1,0 +1,17 @@
+version: '3'
+services:
+  Miniprojet:
+    build: .
+    ports:
+      - 8083:8083
+    links:
+      - fullstack
+    depends_on:
+      - fullstack
+  fullstack:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: fullstack
+    ports:
+      - 3306:3306
