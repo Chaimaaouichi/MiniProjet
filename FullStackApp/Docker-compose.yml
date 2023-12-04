@@ -5,10 +5,10 @@ services:
     ports:
       - 8083:8083
     links:
-      - fullstack
+      - mysql-container
     depends_on:
-      - fullstack
-  fullstack:
+      - mysql-container
+  mysql-container:
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: root
