@@ -11,9 +11,9 @@ pipeline {
         }
 
         stage("Create Docker Image") {
-          dir ("FullStackApp"){
             steps {
                 script {
+                     dir ("FullStackApp"){
                     echo "======== Executing Docker Image Creation ========"
                     sh "docker build -t miniprojet ."
                 }
