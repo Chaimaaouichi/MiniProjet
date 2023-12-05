@@ -12,9 +12,9 @@ pipeline {
           stage("Unit Tests") {
             steps {
                 script {
-                    dir ("FullStackApp"){
+                    dir ("FullStackAppFrontEnd"){
                     echo "======== Executing Unit Tests ========"
-                    sh "mvn test"
+                    sh "npm test"
                 }}
             }
         }
