@@ -1,5 +1,9 @@
 pipeline {
     agent any
+     environment {
+        SONARQUBE_URL = 'http://localhost:9000'
+        SONARQUBE_CREDENTIALS_ID = 'admin'
+    }
     
     stages {
         stage("Getting Code") {
@@ -16,6 +20,16 @@ pipeline {
                     echo "======== Executing Unit Tests ========"
                     sh "npm test"
                 }}
+            }
+        }
+         stage("Code Quality Analysis with SonarQube") {
+            steps {
+                script {
+                    echo "======== Executing SonarQube Analysis ========"
+                    withSonarQubeEnv('SonarScanner') {
+                        sh "mvn sonar:sonar"
+                    }
+                }
             }
         }
 
