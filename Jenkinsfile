@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     echo "======== Executing SonarQube Analysis ========"
-                    withSonarQubeEnv('SonarScanner') {
+                    withSonarQubeEnv('SonarServer') {
                         sh "mvn sonar:sonar"
                     }
                 }
