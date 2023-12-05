@@ -25,10 +25,11 @@ pipeline {
          stage("Code Quality Analysis with SonarQube") {
             steps {
                 script {
+                    dir ("FullStackApp"){
                     echo "======== Executing SonarQube Analysis ========"
                     withSonarQubeEnv('SonarServer') {
                         sh "mvn sonar:sonar"
-                    }
+                    }}
                 }
             }
         }
